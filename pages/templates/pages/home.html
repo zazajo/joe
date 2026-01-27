@@ -1,0 +1,504 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+    
+    body {
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+        50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+    }
+    
+    .float-animation {
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .card-hover {
+        transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+        transform: translateY(-10px);
+    }
+    
+    .typing-cursor::after {
+        content: '|';
+        animation: blink 1s step-end infinite;
+    }
+    
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+    
+    .project-image {
+        transition: transform 0.5s ease;
+    }
+    
+    .project-card:hover .project-image {
+        transform: scale(1.1);
+    }
+    
+    .stat-number {
+        font-variant-numeric: tabular-nums;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute w-96 h-96 -top-48 -left-48 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div class="absolute w-96 h-96 -bottom-48 -right-48 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute w-96 h-96 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse" style="animation-delay: 4s;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <span class="text-white text-sm font-medium">Available for Freelance Projects</span>
+            </div>
+            
+            <!-- Main Heading -->
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6">
+                Full-Stack Developer<br/>
+                <span class="gradient-text">Building Digital Experiences</span>
+            </h1>
+            
+            <!-- Subtitle with typing effect -->
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                I create <span class="text-purple-400 font-semibold">high-performance web applications</span> that drive real business results. 
+                <span class="font-mono text-green-400">Django • Next.js • Tailwind CSS</span>
+            </p>
+            
+            <!-- Stats -->
+            <div class="flex flex-wrap justify-center gap-8 mb-12">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white stat-number">4+</div>
+                    <div class="text-gray-400">Live Projects</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white stat-number">4+</div>
+                    <div class="text-gray-400">Years Experience</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white stat-number">100%</div>
+                    <div class="text-gray-400">Client Satisfaction</div>
+                </div>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="{% url 'projects' %}" class="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-lg overflow-hidden transition-all hover:shadow-2xl hover:shadow-purple-500/50">
+                    <span class="relative z-10 flex items-center gap-2">
+                        View My Work
+                        <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+                
+                <a href="{% url 'contact' %}" class="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white font-semibold rounded-lg hover:bg-white/20 transition-all">
+                    Let's Talk
+                </a>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="mt-16 animate-bounce">
+                <svg class="w-6 h-6 mx-auto text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section class="py-24 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <span class="text-purple-600 dark:text-purple-400 font-semibold text-sm uppercase tracking-wider">Portfolio</span>
+            <h2 class="text-4xl md:text-5xl font-bold mt-2 mb-4">
+                Featured <span class="gradient-text">Projects</span>
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Real projects that delivered measurable results for real clients
+            </p>
+        </div>
+        
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Project 1: Party Ticketing -->
+            <div class="project-card group bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 card-hover">
+                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-purple-500 to-pink-500">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <svg class="w-24 h-24 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/>
+                            </svg>
+                            <span class="text-sm font-mono">Event Ticketing Platform</span>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-semibold">
+                        Django + Paystack
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3">Party Ticketing Platform</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Full-featured event management and ticketing system with secure Paystack payment integration, real-time ticket validation, and beautiful responsive UI.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-semibold rounded-full">Django</span>
+                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-semibold rounded-full">Paystack API</span>
+                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-semibold rounded-full">Tailwind CSS</span>
+                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-semibold rounded-full">PostgreSQL</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://pancakejo.pythonanywhere.com" class="flex items-center gap-2 text-purple-600 dark:text-purple-400 font-semibold hover:gap-3 transition-all">
+                            View Project
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                        <div class="flex gap-2">
+                            <span class="text-green-600 dark:text-green-400 text-sm font-semibold">✓ Live</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2: SZN E-Commerce -->
+            <div class="project-card group bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 card-hover">
+                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-500">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <svg class="w-24 h-24 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                            </svg>
+                            <span class="text-sm font-mono">E-Commerce Platform</span>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-semibold">
+                        Full-Stack
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3">SZN Brand E-Commerce</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Complete e-commerce solution for fashion brand featuring product catalog, shopping cart, secure checkout, order management, and admin dashboard.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">Django</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">Payment Gateway</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">Responsive Design</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">REST API</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://www.sznisreal.com" class="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:gap-3 transition-all">
+                            View Project
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                        <div class="flex gap-2">
+                            <span class="text-green-600 dark:text-green-400 text-sm font-semibold">✓ Live</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3: Crownie Coin Launch -->
+            <div class="project-card group bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 card-hover">
+                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-amber-500 to-orange-500">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <svg class="w-24 h-24 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-sm font-mono">Crypto Launch Platform</span>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-semibold">
+                        Django + Next.js
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3">Crownie Coin Launch Platform</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Sophisticated cryptocurrency launch platform with user authentication, referral system, Discord integration for community tracking, and real-time analytics. Built in both Django and Next.js versions.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-semibold rounded-full">Next.js</span>
+                        <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-semibold rounded-full">Django</span>
+                        <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-semibold rounded-full">Discord API</span>
+                        <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-semibold rounded-full">Referral System</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://www.crownieverse.xyz" class="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold hover:gap-3 transition-all">
+                            View Project
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                        <div class="flex gap-2">
+                            <span class="text-green-600 dark:text-green-400 text-sm font-semibold">✓ Live</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4: MarketBrainers -->
+            <div class="project-card group bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 card-hover">
+                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-green-500 to-emerald-500">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <svg class="w-24 h-24 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            <span class="text-sm font-mono">Marketing Agency Site</span>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-semibold">
+                        Lead Developer
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3">MarketBrainers Agency</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Professional marketing agency website with service showcase, client portal, case studies, contact forms, and content management system. Serving as the lead developer on this ongoing project.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">Django</span>
+                        <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">CMS</span>
+                        <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">Client Portal</span>
+                        <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">SEO Optimized</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <a href="https://www.marketbrainer.org" class="flex items-center gap-2 text-green-600 dark:text-green-400 font-semibold hover:gap-3 transition-all">
+                            View Project
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                        <div class="flex gap-2">
+                            <span class="text-green-600 dark:text-green-400 text-sm font-semibold">✓ Live</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- View All Projects Button -->
+        <div class="text-center">
+            <a href="{% url 'projects' %}" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-lg hover:shadow-xl transition-all">
+                View All Projects
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Services/Expertise Section -->
+<section class="py-24 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <span class="text-purple-600 dark:text-purple-400 font-semibold text-sm uppercase tracking-wider">What I Do</span>
+            <h2 class="text-4xl md:text-5xl font-bold mt-2 mb-4">
+                My <span class="gradient-text">Expertise</span>
+            </h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Service 1 -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all card-hover">
+                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Full-Stack Development</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Building complete web applications from backend to frontend with Django, Next.js, and modern JavaScript frameworks.
+                </p>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all card-hover">
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">E-Commerce Solutions</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Custom online stores with secure payment integration, inventory management, and optimized checkout flows.
+                </p>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all card-hover">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">UI/UX Design</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Creating beautiful, intuitive interfaces with Tailwind CSS that provide exceptional user experiences.
+                </p>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all card-hover">
+                <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">API Integration</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Seamlessly connecting your application with third-party services like payment gateways, Discord, and more.
+                </p>
+            </div>
+            
+            <!-- Service 5 -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all card-hover">
+                <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-500 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">User Authentication</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Implementing secure login systems, user management, and authorization with best practices.
+                </p>
+            </div>
+            
+            <!-- Service 6 -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all card-hover">
+                <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Performance Optimization</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Ensuring your application runs fast and efficiently with optimized code and database queries.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tech Stack Section -->
+<section class="py-24 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <span class="text-purple-600 dark:text-purple-400 font-semibold text-sm uppercase tracking-wider">Technologies</span>
+            <h2 class="text-4xl md:text-5xl font-bold mt-2 mb-4">
+                Tech <span class="gradient-text">Stack</span>
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Modern tools and frameworks I use to build exceptional digital products
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+            <div class="flex flex-col items-center group">
+                <div class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <img src="{% static 'tech/django.png' %}" alt="Django" class="w-12 h-12 object-contain grayscale group-hover:grayscale-0 transition-all">
+                </div>
+                <span class="text-sm font-semibold">Django</span>
+            </div>
+            
+            <div class="flex flex-col items-center group">
+                <div class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <img src="{% static 'tech/nextjs.png' %}" alt="Next.js" class="w-12 h-12 object-contain grayscale group-hover:grayscale-0 transition-all">
+                </div>
+                <span class="text-sm font-semibold">Next.js</span>
+            </div>
+            
+            <div class="flex flex-col items-center group">
+                <div class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <img src="{% static 'tech/tailwind.png' %}" alt="Tailwind CSS" class="w-12 h-12 object-contain grayscale group-hover:grayscale-0 transition-all">
+                </div>
+                <span class="text-sm font-semibold">Tailwind CSS</span>
+            </div>
+            
+            <div class="flex flex-col items-center group">
+                <div class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <img src="{% static 'tech/postgre.png' %}" alt="PostgreSQL" class="w-12 h-12 object-contain grayscale group-hover:grayscale-0 transition-all">
+                </div>
+                <span class="text-sm font-semibold">PostgreSQL</span>
+            </div>
+            
+            <div class="flex flex-col items-center group">
+                <div class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <img src="{% static 'tech/html.png' %}" alt="HTML/CSS" class="w-12 h-12 object-contain grayscale group-hover:grayscale-0 transition-all">
+                </div>
+                <span class="text-sm font-semibold">HTML/CSS</span>
+            </div>
+            
+            <div class="flex flex-col items-center group">
+                <div class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <img src="{% static 'tech/js.png' %}" alt="JavaScript" class="w-12 h-12 object-contain grayscale group-hover:grayscale-0 transition-all">
+                </div>
+                <span class="text-sm font-semibold">JavaScript</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-24 bg-gradient-to-br from-purple-600 to-blue-600 text-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+            Ready to Start Your Project?
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            Let's work together to bring your ideas to life with clean code and beautiful design.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'contact' %}" class="px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100 transition-all">
+                Get in Touch
+            </a>
+            <a href="{% url 'projects' %}" class="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-lg hover:bg-white/20 transition-all">
+                View Portfolio
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
