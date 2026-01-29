@@ -63,6 +63,14 @@
     .stat-number {
         font-variant-numeric: tabular-nums;
     }
+    
+    .tech-badge {
+        transition: all 0.3s ease;
+    }
+    
+    .tech-badge:hover {
+        transform: translateY(-2px);
+    }
 </style>
 {% endblock %}
 
@@ -156,9 +164,101 @@
             </p>
         </div>
         
-        <!-- Projects Grid -->
+        <!-- Featured Project: SZN E-Commerce - Full Width -->
+        <div class="mb-16">
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-3xl overflow-hidden shadow-2xl">
+                <div class="grid lg:grid-cols-2 gap-0">
+                    <!-- Image Section -->
+                    <div class="relative h-80 lg:h-auto bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                        <div class="absolute top-6 left-6 z-10 px-4 py-2 bg-blue-600 text-white text-sm font-bold rounded-full shadow-lg">
+                            ⭐ FEATURED PROJECT
+                        </div>
+                        <div class="text-center text-white p-8">
+                            <svg class="w-32 h-32 mx-auto mb-6 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                            </svg>
+                            <div class="text-2xl font-bold mb-2">SZN Brand E-Commerce</div>
+                            <div class="text-sm opacity-75">Premium Fashion Platform</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Section -->
+                    <div class="p-8 lg:p-12 flex flex-col justify-center">
+                        <div class="mb-6">
+                            <div class="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full mb-4">
+                                E-COMMERCE
+                            </div>
+                            <h3 class="text-3xl lg:text-4xl font-bold mb-4">SZN Brand E-Commerce</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-lg mb-6">
+                                Complete e-commerce solution for fashion brand featuring advanced product catalog with filtering, 
+                                intuitive shopping cart, secure checkout with payment gateway integration, comprehensive order tracking, 
+                                and powerful admin dashboard for business management.
+                            </p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3 text-lg">Key Features:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span>Advanced product catalog with filtering and search</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span>Secure payment gateway with order tracking</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span>Comprehensive admin dashboard</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span>Mobile-responsive design for all devices</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3">Technologies:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-badge px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-semibold rounded-lg">Django</span>
+                                <span class="tech-badge px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-sm font-semibold rounded-lg">Python</span>
+                                <span class="tech-badge px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-sm font-semibold rounded-lg">Payment Gateway</span>
+                                <span class="tech-badge px-4 py-2 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-400 text-sm font-semibold rounded-lg">PostgreSQL</span>
+                                <span class="tech-badge px-4 py-2 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-400 text-sm font-semibold rounded-lg">Tailwind CSS</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://sznisreal.com" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-xl transition-all">
+                                View Live Site
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                </svg>
+                            </a>
+                            <span class="inline-flex items-center gap-2 px-6 py-3 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold rounded-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Live & Active
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Other Projects Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <!-- Project 1: Party Ticketing -->
+            <!-- Project: Party Ticketing -->
             <div class="project-card group bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 card-hover">
                 <div class="relative h-64 overflow-hidden bg-gradient-to-br from-purple-500 to-pink-500">
                     <div class="absolute inset-0 flex items-center justify-center">
@@ -185,100 +285,18 @@
                         <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-semibold rounded-full">PostgreSQL</span>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
-                        <a href="https://pancakejo.pythonanywhere.com" class="flex items-center gap-2 text-purple-600 dark:text-purple-400 font-semibold hover:gap-3 transition-all">
+                        <a href="https://pancakejo.pythonanywhere.com" target="_blank" class="flex items-center gap-2 text-purple-600 dark:text-purple-400 font-semibold hover:gap-3 transition-all">
                             View Project
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                             </svg>
                         </a>
-                        <div class="flex gap-2">
-                            <span class="text-green-600 dark:text-green-400 text-sm font-semibold">✓ Live</span>
-                        </div>
+                        <span class="text-green-600 dark:text-green-400 text-sm font-semibold">✓ Live</span>
                     </div>
                 </div>
             </div>
             
-            <!-- Project 2: SZN E-Commerce -->
-            <div class="project-card group bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 card-hover">
-                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-500">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="text-center text-white">
-                            <svg class="w-24 h-24 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-                            </svg>
-                            <span class="text-sm font-mono">E-Commerce Platform</span>
-                        </div>
-                    </div>
-                    <div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-semibold">
-                        Full-Stack
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold mb-3">SZN Brand E-Commerce</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
-                        Complete e-commerce solution for fashion brand featuring product catalog, shopping cart, secure checkout, order management, and admin dashboard.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">Django</span>
-                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">Payment Gateway</span>
-                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">Responsive Design</span>
-                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">REST API</span>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
-                        <a href="https://www.sznisreal.com" class="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:gap-3 transition-all">
-                            View Project
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                            </svg>
-                        </a>
-                        <div class="flex gap-2">
-                            <span class="text-green-600 dark:text-green-400 text-sm font-semibold">✓ Live</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 3: Crownie Coin Launch -->
-            <div class="project-card group bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 card-hover">
-                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-amber-500 to-orange-500">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="text-center text-white">
-                            <svg class="w-24 h-24 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span class="text-sm font-mono">Crypto Launch Platform</span>
-                        </div>
-                    </div>
-                    <div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-semibold">
-                        Django + Next.js
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold mb-3">Crownie Coin Launch Platform</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
-                        Sophisticated cryptocurrency launch platform with user authentication, referral system, Discord integration for community tracking, and real-time analytics. Built in both Django and Next.js versions.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-semibold rounded-full">Next.js</span>
-                        <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-semibold rounded-full">Django</span>
-                        <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-semibold rounded-full">Discord API</span>
-                        <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-semibold rounded-full">Referral System</span>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
-                        <a href="https://www.crownieverse.xyz" class="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold hover:gap-3 transition-all">
-                            View Project
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                            </svg>
-                        </a>
-                        <div class="flex gap-2">
-                            <span class="text-green-600 dark:text-green-400 text-sm font-semibold">✓ Live</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 4: MarketBrainers -->
+            <!-- Project: MarketBrainers -->
             <div class="project-card group bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 card-hover">
                 <div class="relative h-64 overflow-hidden bg-gradient-to-br from-green-500 to-emerald-500">
                     <div class="absolute inset-0 flex items-center justify-center">
@@ -296,25 +314,149 @@
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3">MarketBrainers Agency</h3>
                     <p class="text-gray-600 dark:text-gray-400 mb-4">
-                        Professional marketing agency website with service showcase, client portal, case studies, contact forms, and content management system. Serving as the lead developer on this ongoing project.
+                        Professional marketing agency website with service showcase, client portal, case studies, and CMS. Serving as the lead developer on this ongoing project.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">Django</span>
                         <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">CMS</span>
                         <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">Client Portal</span>
-                        <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">SEO Optimized</span>
+                        <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">SEO</span>
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
-                        <a href="https://www.marketbrainer.org" class="flex items-center gap-2 text-green-600 dark:text-green-400 font-semibold hover:gap-3 transition-all">
+                        <a href="https://www.marketbrainer.org" target="_blank" class="flex items-center gap-2 text-green-600 dark:text-green-400 font-semibold hover:gap-3 transition-all">
                             View Project
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                             </svg>
                         </a>
-                        <div class="flex gap-2">
-                            <span class="text-green-600 dark:text-green-400 text-sm font-semibold">✓ Live</span>
+                        <span class="text-green-600 dark:text-green-400 text-sm font-semibold">✓ Live</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Crownie Project - Both Versions -->
+        <div class="mb-12">
+            <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-3xl overflow-hidden shadow-xl border-2 border-amber-200 dark:border-amber-800 p-8">
+                <div class="mb-8 text-center">
+                    <div class="inline-block px-4 py-2 bg-amber-600 text-white text-sm font-bold rounded-full mb-4">
+                        🪙 WEB3 / CRYPTO PROJECT
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-3">
+                        <span class="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Crownie</span> Coin Launch Platform
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+                        Sophisticated cryptocurrency launch platform showcasing full-stack versatility. 
+                        Built with <strong>two different technology stacks</strong> - Django and Next.js - demonstrating expertise across backend and modern frontend frameworks.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <!-- Django Version -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all card-hover border-2 border-green-200 dark:border-green-800">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Django Version</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Backend-focused</p>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Full-stack Django implementation with robust backend architecture, server-side rendering, and integrated admin panel for comprehensive management.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">Django</span>
+                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full">Discord API</span>
+                        </div>
+                        
+                        <a href="https://www.crownieverse.xyz" target="_blank" class="inline-flex items-center gap-2 text-green-600 dark:text-green-400 font-semibold hover:gap-3 transition-all">
+                            View Django Version
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Next.js Version -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all card-hover border-2 border-blue-200 dark:border-blue-800">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Next.js Version</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Modern React</p>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Modern Next.js implementation with React, server-side rendering, optimized performance, and seamless user experience with cutting-edge frontend technologies.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">Next.js</span>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">React</span>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">TypeScript</span>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full">API Routes</span>
+                        </div>
+                        
+                        <a href="https://crownie-landing-gilt.vercel.app/" target="_blank" class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:gap-3 transition-all">
+                            View Next.js Version
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Shared Features -->
+                <div class="pt-6 border-t-2 border-amber-200 dark:border-amber-800">
+                    <h4 class="font-bold mb-4 text-center text-lg">Core Features:</h4>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="flex items-center gap-2 bg-white dark:bg-gray-800 p-3 rounded-lg">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm font-semibold">User Authentication</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white dark:bg-gray-800 p-3 rounded-lg">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm font-semibold">Referral System</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white dark:bg-gray-800 p-3 rounded-lg">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm font-semibold">Discord Integration</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white dark:bg-gray-800 p-3 rounded-lg">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm font-semibold">Analytics Dashboard</span>
                         </div>
                     </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold rounded-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Both Versions Live & Active
+                    </span>
                 </div>
             </div>
         </div>
